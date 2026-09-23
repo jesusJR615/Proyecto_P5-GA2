@@ -10,4 +10,6 @@ public class G2Application {
 		SpringApplication.run(G2Application.class, args);
 	}
 
+	//Esto es una prueba
+
 }
