@@ -8,21 +8,21 @@
 <body>
     <h1>Añadir un nuevo producto</h1>
 
-    <form>  <!-- creo el formulario -->
+    <form th:action="@{/products/save}" method="post">  <!-- creo el formulario y lo envio a la ruta /products/save-->
         <label for="id">ID:</label>  <!-- Indico que se va a introducir un id -->
-        <input type="number" id="id" th:field="${produc.id}">  <!-- Introducir id -->
+        <input type="number" id="id" th:field="${product.id}">  <!-- Introducir id -->
         <br><br>
 
          <label for="name">Nombre:</label> 
-        <input type="text" id="name" th:field="${produc.name}">  
+        <input type="text" id="name" th:field="${product.name}">  
         <br><br>
 
         <label for="price">precio:</label> 
-        <input type="number" id="price" th:field="${produc.price}">  
+        <input type="number" id="price" th:field="${product.price}">  
         <br><br>
 
         <label for="description">descripcion:</label> 
-        <input type="text" id="description" th:field="${produc.description}">  
+        <input type="text" id="description" th:field="${product.description}">  
         <br><br>
 
         <!-- creo el boton -->
