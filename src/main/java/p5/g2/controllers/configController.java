@@ -12,10 +12,11 @@ import p5.g2.models.product;
 
 @Controller
 public class configController {
+
     @GetMapping("/products/list")
     public String productsList(ModelMap model) {
         //Retorno el nombre de la plantilla Thymeleaf
-        return "products/list"; 
+        return "productsList"; 
     }
 
     @ModelAttribute ("products")
