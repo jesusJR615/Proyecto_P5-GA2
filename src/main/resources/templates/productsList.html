@@ -12,7 +12,7 @@
      <div th:if="${not products.isEmpty()}">
         <div th:each="product : ${products}">
             <h2>
-                <a th:href="@{/details/{id}(id=${product.id})}"
+                <a th:href="@{/products/details/{id}(id=${product.id})}"
                 th:text="${product.name}">
                 </a>
             </h2>
