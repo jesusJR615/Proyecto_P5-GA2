@@ -4,15 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- El título dinámico viene del modelo -->
-    <title th:text="${title}">Document</title>
 </head>
 <body>
     <h1>Lista de productos</h1>
 
     <!-- Si existen los productos -->
-     <div th:if="${not proucts.isEmpty()}">
+     <div th:if="${not products.isEmpty()}">
         <div th:each="product : ${products}">
             <h2>
                 <a th:href="@{/details/{id}(id=${product.id})}"
@@ -20,10 +17,9 @@
                 </a>
             </h2>
 
-            <!-- Recorro el precio y la descipcion de los productos -->
+            <!-- Muestro precio y la descipcion de los productos -->
              <ul>
-                <li th:each="precio : ${products.price}"
-                th:text="${precio + ' - ' + products.description}">
+                <li th:text="${product.price + ' - ' + product.description}">
                 </li>
              </ul>
             
