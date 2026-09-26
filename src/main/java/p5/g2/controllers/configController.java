@@ -31,7 +31,7 @@ public class configController {
             if (p.getId() == id) {
                 model.addAttribute("product", p);
 
-                return "productsList"; // Redirijo a la vista 'productsList'
+                return "productsDetails"; // Redirijo a la vista 'productsList'
                 
             }
         }
