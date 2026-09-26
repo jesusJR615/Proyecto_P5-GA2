@@ -7,16 +7,35 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import p5.g2.models.product;
 
 @Controller
 public class configController {
-
+    //Mustra la lista completa de todos los productos
     @GetMapping("/products/list")
     public String productsList(ModelMap model) {
         //Retorno el nombre de la plantilla Thymeleaf
         return "productsList"; 
+    }
+
+    //Mustra los detalles de un producto
+    @GetMapping("/products/details/{id}")
+    public String productsDetailsID(@PathVariable Integer id, ModelMap model){
+
+        //Recorro todos los productos
+        for(product p : productModel()){
+
+            //Realizo la comparacion del producto por id
+            if (p.getId() == id) {
+                model.addAttribute("product", p);
+
+                return "productsList"; // Redirijo a la vista 'productsList'
+                
+            }
+        }
+        return "productsList";
     }
 
     @ModelAttribute ("products")
