@@ -19,7 +19,7 @@
 
             <!-- Muestro precio y la descipcion de los productos -->
              <ul>
-                <li th:text="${product.price + ' - ' + product.description}">
+                <li th:text="${product.description + ' - precio:' + product.price + '€ '}"></li>
                 </li>
              </ul>
             
