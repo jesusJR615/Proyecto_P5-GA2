@@ -38,6 +38,15 @@ public class configController {
         return "productsList";
     }
 
+    //Mostrar formulario del producto
+     @GetMapping("/products/new")
+         public String productsNew(ModelMap model) {
+        model.addAttribute("product", new product());
+
+        return "productsNew";
+    }
+
+
     @ModelAttribute ("products")
     public List<product> productModel(){
         return Arrays.asList(

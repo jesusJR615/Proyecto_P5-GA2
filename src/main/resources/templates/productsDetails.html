@@ -11,18 +11,12 @@
     <h2 th:text="${product.name}">
         Nombre del producto
     </h2>
-
-    <h3>Descripcion y precio</h3>
-
+    
     <ul>
         <!-- Mustro la descripcion y el precio del producto seleccionado por su id -->
         <li
         th:text="${product.description + ' - precio:' + product.price + '€ '}">
         </li>
     </ul>
-
-    <br>
-
-    <a th:href="@{/products/list}">Volver a la página lista de productos</a>
 </body>
 </html>
