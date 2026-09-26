@@ -70,7 +70,7 @@ public class configController {
             new product(4, "Microondas", 85.2, "Microondas con funcion de horno")
         ));
         products.addAll(newProducts); //Añadimos todos los productos
-        return products;
+        return products; //Retorno la lista de products
 
     }
     
