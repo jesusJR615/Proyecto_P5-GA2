@@ -46,6 +46,7 @@ public class configController {
     //Mostrar formulario del producto
      @GetMapping("/products/new")
          public String productsNew(ModelMap model) {
+
         model.addAttribute("product", new product());
 
         return "productsNew";
@@ -54,6 +55,10 @@ public class configController {
     //Insertar produto
     @PostMapping("/products/save")
     public String productsSave(@ModelAttribute product product){
+        //Compruebo que para insertar un nuevo producto, tienen que insertar el nombre
+        if(product.getName() == null || product.getName().trim().isEmpty()){
+            return "redirect:/products/new";
+        }
         newProducts.add(product); //Añadirmos un producto
         return "redirect:/products/list";
     }
