@@ -30,5 +30,8 @@
       <div th:if="${products.isEmpty()}">
         <p>Los productos no existen</p>
       </div>
+
+    <!-- creo el boton -->
+    <a th:href="@{/products/new}" button type="submit">Página insertar producto</a>
 </body>
 </html>

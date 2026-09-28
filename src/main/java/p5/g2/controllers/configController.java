@@ -55,7 +55,7 @@ public class configController {
     @PostMapping("/products/save")
     public String productsSave(@ModelAttribute product product){
         newProducts.add(product); //Añadirmos un producto
-        return "productsList";
+        return "redirect:/products/list";
     }
 
 
