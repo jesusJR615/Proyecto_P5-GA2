@@ -28,5 +28,8 @@
         <!-- creo el boton -->
          <button type="submit">Añadir producto</button>
     </form>
+    <p th:if="${error}"
+        th:text="${error}">
+    </p>
 </body>
 </html>

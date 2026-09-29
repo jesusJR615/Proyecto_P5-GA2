@@ -59,17 +59,21 @@ public class configController {
          public String productsNew(ModelMap model) {
 
         model.addAttribute("product", new product());
+        model.addAttribute("error",null);
 
         return "productsNew";
     }
 
     //Insertar produto
     @PostMapping("/products/save")
-    public String productsSave(@ModelAttribute product product){
+    public String productsSave(@ModelAttribute product product, ModelMap model){
         //Compruebo que para insertar un nuevo producto, tienen que insertar el nombre
         if(product.getName() == null || product.getName().trim().isEmpty()){
-            return "redirect:/products/new";
+            model.addAttribute("product", new product());
+            model.addAttribute("error", "Introduce el campo nombre");
+        return "productsNew";
         }
+
         newProducts.add(product); //Añadirmos un producto
         return "redirect:/products/list";
     }
