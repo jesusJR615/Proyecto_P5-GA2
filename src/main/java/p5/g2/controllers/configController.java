@@ -29,11 +29,22 @@ public class configController {
     @GetMapping("/products/details/{id}")
     public String productsDetailsID(@PathVariable Integer id, ModelMap model){
 
+        Integer num; //Creo la variable num
+
+        try {
+            num = Integer.parseInt("id"); //Parseo a int el id
+
+        } catch (NumberFormatException e) {
+            model.addAttribute("error", "Debe de ser un núemro"); //Si el usuario establece la ruta products/details/lavadora le salta el error
+            return "productsList"; // le redirijo a la vista 'productsList'
+            // TODO: handle exception
+        }
+
         //Recorro todos los productos
         for(product p : productModel()){
 
             //Realizo la comparacion del producto por id
-            if (p.getId() == id) {
+            if (p.getId().equals(num)) {
                 model.addAttribute("product", p);
 
                 return "productsDetails"; // Redirijo a la vista 'productsList'
