@@ -49,7 +49,6 @@ public class configController {
         } catch (NumberFormatException e) {
             model.addAttribute("error", "Debe de ser un núemro"); //Si el usuario establece la ruta products/details/lavadora le salta el error
             return "productsList"; // le redirijo a la vista 'productsList'
-            // TODO: handle exception
         }
 
         
