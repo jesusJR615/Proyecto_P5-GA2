@@ -27,19 +27,12 @@ public class configController {
 
     //Mustra los detalles de un producto
     @GetMapping("/products/details/{id}")
-    public String productsDetailsID(@PathVariable Integer id, ModelMap model){
+    public String productsDetailsID(@PathVariable String id, ModelMap model){
 
         Integer num; //Creo la variable num
 
         try {
-            num = Integer.parseInt("id"); //Parseo a int el id
-
-        } catch (NumberFormatException e) {
-            model.addAttribute("error", "Debe de ser un núemro"); //Si el usuario establece la ruta products/details/lavadora le salta el error
-            return "productsList"; // le redirijo a la vista 'productsList'
-            // TODO: handle exception
-        }
-
+        num = Integer.parseInt(id); //Parseo el id a integer
         //Recorro todos los productos
         for(product p : productModel()){
 
@@ -52,6 +45,14 @@ public class configController {
             }
         }
         return "productsList";
+
+        } catch (NumberFormatException e) {
+            model.addAttribute("error", "Debe de ser un núemro"); //Si el usuario establece la ruta products/details/lavadora le salta el error
+            return "productsList"; // le redirijo a la vista 'productsList'
+            // TODO: handle exception
+        }
+
+        
     }
 
     //Mostrar formulario del producto
